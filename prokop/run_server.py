@@ -74,6 +74,8 @@ def main():
             print(f"  kill 12345", file=sys.stderr)
             print("\nAlternatively, a more direct (but requires `lsof`) command to kill the process:", file=sys.stderr)
             print(f"  sudo kill $(sudo lsof -t -i:{port})", file=sys.stderr)
+            print(f"  sudo lsof -t -i:{port}", file=sys.stderr)
+            print(f"  sudo ss -tulnp | grep :/{port}", file=sys.stderr)
             print("\nAfter stopping the other process, try running this server script again.", file=sys.stderr)
         else:
             print(f"An unexpected OS error occurred: {e}", file=sys.stderr)
